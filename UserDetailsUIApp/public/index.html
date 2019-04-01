@@ -1,0 +1,54 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+   <head>
+      <title>User Details Application</title>
+   </head>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <body>
+      <div class="container" ng-controller="AppCtrl">
+         <h1>User Details Application</h1>
+         <tbody>
+            <td>
+            	<label for="id">Enter Username</label>
+               <input class="form-control" type="text" id="username" name="username" ng-model="userNameInput"
+                  ng-model-options="{getterSetter:true}">
+            </td>
+            <td>
+               <button class="btn btn-primary" ng-click="getUserInfo()">Submit</button>
+            </td>
+            <div ng-show="user.id != -1">
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <th>Username</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Status</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>
+                           {{user.userName}}
+                        </td>
+                        <td>
+                           {{user.firstName}}
+                        </td>
+                        <td>
+                           {{user.lastName}}
+                        </td>
+                        <td>
+                           {{user.status}}
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <div ng-show="user.id == -1">
+               <h1>User not found</h1>
+            </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+      <script src="controllers/controller.js"></script>
+   </body>
+</html>
